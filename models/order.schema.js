@@ -21,23 +21,22 @@ const orderShema = new mongoose.Schema(
       type: mongoose.Types.ObjectId,
       required: true,
     },
-    mobileNumber:{
-        type:Number,
-        required:true,
+    mobileNumber: {
+      type: Number,
+      required: true,
     },
-    amount:{
-        type:Number,
-        required:true,
+    amount: {
+      type: Number,
+      required: true,
     },
-    coupon:String,
-    transactionId:String,
+    coupon: String,
+    transactionId: String,
 
-    status:{
-        type:String,
-        enum:["ORDERED", "SHIPPED", "DELIVERED", "CANCELLED"],
-        default:"ORDERED"
-    }
-
+    status: {
+      type: String,
+      enum: Object.values(OrderStatus),
+      default: OrderStatus.ORDERED,
+    },
   },
   { timestamps: true }
 );
